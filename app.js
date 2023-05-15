@@ -4,9 +4,6 @@ const readline = require('readline');
 const utils = require('./utils');
 
 //Global Variables
-const READER = readline.createInterface({
-  input: fs.createReadStream(CONFIG.csvFilePath),
-});
 const START = new Date(); //Time for execution stats
 const USERPROFILES = {}; //Records result
 let SCHEMA = undefined; //Based on CSV HEADER
@@ -19,6 +16,9 @@ var CONFIG = {
   userIdColumnName: 'uid',
   createdAtColumnName: 'createdAt',
 };
+const READER = readline.createInterface({
+  input: fs.createReadStream(CONFIG.csvFilePath),
+});
 
 //Arguments
 process.argv.slice(2).forEach((val, index, array) => {
